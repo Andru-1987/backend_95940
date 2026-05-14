@@ -331,3 +331,7 @@ npm init -y
 * Clases.
 * Métodos estáticos.
 * Node.js.
+
+## Ejercicio de Logica
+
+![imagen](.img/leap_year.png)
