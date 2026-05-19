@@ -82,6 +82,20 @@ class ModelPersona {
     getInfo() {
         console.log(`[ USER ${this?.id}] Email: ${this.email}`);
     }
+
+    update(data) {
+        const elementosTipoNullish = [null, undefined, ""];
+
+        if (!elementosTipoNullish.includes(data.nombre)) {
+            this.nombre = data.nombre;
+        }
+
+        if (data?.email !== undefined) {
+            this.email = data.email;
+        }
+
+        return this;
+    }
 }
 
 class Manager {
@@ -140,6 +154,21 @@ class Manager {
         console.log(`[INFO] Item deleted: ${id}`);
         return true;
     }
+
+    updateById(id, data) {
+        const index = this.store.findIndex((item) => item.id === id);
+
+        if (index === -1) {
+            console.warn(`[WARN] Item not found: ${id}`);
+            return null;
+        }
+
+        this.store[index] = this.store[index].update(data);
+
+        console.log(`[INFO] Item updated: ${id}`);
+
+        return true;
+    }
 }
 
 const manager = new Manager();
@@ -156,4 +185,10 @@ manager.getById(20);
 
 manager.deleteById(2);
 
+manager.updateById(1, { email: "ola.k.ase@gmial.com" });
+
+console.log(store);
+
 manager.getAll();
+
+console.log(manager.store);
