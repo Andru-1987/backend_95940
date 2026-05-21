@@ -1,0 +1,16 @@
+{
+    "name": "practicas-generales-clase2",
+    "version": "1.0.0",
+    "description": "esto es un proyecto de js inicial",
+    "keywords": [
+        "project-es6"
+    ],
+    "license": "MIT",
+    "author": "yo mismo",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    }
+}
