@@ -1,0 +1,15 @@
+{
+    "name": "clase_practica",
+    "version": "1.0.0",
+    "description": "server-js basico",
+    "license": "ISC",
+    "author": "andru@mail.com",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^5.2.1"
+    }
+}
