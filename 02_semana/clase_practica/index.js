@@ -1,6 +1,6 @@
 // importar las libreas necesarias para express -> generar el servidor
 import express from "express";
-import usersRouter from "./src/routes / users.router.js";
+import usersRouter from "./src/routes/users.router.js";
 
 // crear una instancia de express
 const app = express();
