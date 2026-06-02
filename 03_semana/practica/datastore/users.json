@@ -1,0 +1,14 @@
+[
+  {
+    "name": "pepe",
+    "lastName": "pirulito",
+    "email": "pepe@mail.com",
+    "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+  },
+  {
+    "name": "raul",
+    "lastName": "fischetti",
+    "email": "fish@mail.com",
+    "password": "fa6a3dd0a107363b3f37436a570c42760ebe77419492f54c2c23c199f8307b93"
+  }
+]
