@@ -1,10 +1,14 @@
 import express from "express";
+import usersRouter from "./src/routers/index.js";
 
 //instanciando o express
 const app = express();
 
 //definicion del puert
 const port = 3000;
+
+const VERSION = "v1";
+const BASE_URL = `/api/${VERSION}`;
 
 //middleware
 app.use(express.json());
@@ -82,6 +86,8 @@ app.post("/body", (request, response) => {
         resultado: resultado,
     });
 });
+
+app.use(`${BASE_URL}/users`, usersRouter);
 
 //defiminos la escucha del servidor
 app.listen(port, () => {
