@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Notebook Lenovo ThinkPad E14",
+    "description": "Notebook empresarial con procesador Intel Core i5, 16GB de RAM y SSD de 512GB.",
+    "code": "LTP-E14-001",
+    "price": 1299.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología",
+    "thumbnails": [
+      "https://example.com/images/thinkpad-e14-front.jpg",
+      "https://example.com/images/thinkpad-e14-side.jpg"
+    ],
+    "id": "prod_1781008530402"
+  }
+]
