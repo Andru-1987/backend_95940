@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>John Doe | Web Developer</title>
+        <link rel="stylesheet" href="./static/styles.css" />
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="logo">JD</div>
+
+            <nav>
+                <a href="#about">Sobre mí</a>
+                <a href="#skills">Skills</a>
+                <a href="/catalogo">Catalogo</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+
+            <button id="theme-toggle">☀️</button>
+        </header>
+
+        <main class="hero">
+            <div class="hero-content">
+                <span class="tag">Web Developer</span>
+
+                <h1>
+                    Construyo experiencias web rápidas, modernas y elegantes.
+                </h1>
+
+                <p>
+                    Especializado en JavaScript, Node.js, React y desarrollo de
+                    aplicaciones escalables.
+                </p>
+
+                <div class="actions">
+                    <a href="#contact" class="btn primary">Contactarme</a>
+                    <a href="#skills" class="btn secondary">Ver Skills</a>
+                </div>
+            </div>
+        </main>
+
+        <section id="about" class="section">
+            <h2>Sobre mí</h2>
+            <p>
+                Desarrollador web enfocado en crear soluciones modernas,
+                accesibles y con una excelente experiencia de usuario.
+            </p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Stack Tecnológico</h2>
+
+            <div class="skills-grid">
+                <div class="card">HTML5</div>
+                <div class="card">CSS3</div>
+                <div class="card">JavaScript</div>
+                <div class="card">React</div>
+                <div class="card">Node.js</div>
+                <div class="card">MongoDB</div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contacto</h2>
+            <p>john@developer.com</p>
+            <p>github.com/johndoe</p>
+        </section>
+
+        <script>
+            const toggle = document.getElementById("theme-toggle");
+            const html = document.documentElement;
+
+            toggle.addEventListener("click", () => {
+                const currentTheme = html.getAttribute("data-theme");
+
+                if (currentTheme === "dark") {
+                    html.setAttribute("data-theme", "light");
+                    toggle.textContent = "🌙";
+                } else {
+                    html.setAttribute("data-theme", "dark");
+                    toggle.textContent = "☀️";
+                }
+            });
+        </script>
+    </body>
+</html>

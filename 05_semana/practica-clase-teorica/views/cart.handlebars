@@ -1,0 +1,11 @@
+<h1>Carrito de Compras</h1>
+<ol>
+    {{#each items }}
+    <li value="{{@index}}">
+        <strong>Producto: </strong>{{ this.name }} |
+        <strong>Precio unitario: </strong>{{ this.price }}|
+        <strong>Cantidad: </strong>{{ this.quantity }} |
+        <strong>Subtotal: </strong>{{ calculateSubTotal this.price this.quantity }}
+    </li>
+    {{/each}}
+</ol>
