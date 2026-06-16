@@ -1,0 +1,145 @@
+[
+  {
+    "title": "Notebook Lenovo ThinkPad E14",
+    "description": "Notebook empresarial con procesador Intel Core i5, 16GB de RAM y SSD de 512GB.",
+    "code": "LTP-E14-001",
+    "price": 1299.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología",
+    "thumbnails": [
+      "cat_bg_hd.png"
+    ],
+    "id": "prod_1781008530402"
+  },
+  {
+    "title": "Monitor LG UltraWide 29\"",
+    "description": "Monitor IPS UltraWide Full HD ideal para productividad y entretenimiento.",
+    "code": "LG-MON-002",
+    "price": 349.99,
+    "status": true,
+    "stock": 40,
+    "category": "Tecnología",
+    "thumbnails": [
+      "https://example.com/images/lg-ultrawide-front.jpg"
+    ],
+    "id": "prod_1781008530403"
+  },
+  {
+    "title": "Teclado Mecánico Redragon Kumara",
+    "description": "Teclado mecánico compacto con switches blue y retroiluminación RGB.",
+    "code": "RED-KUM-003",
+    "price": 69.99,
+    "status": true,
+    "stock": 80,
+    "category": "Periféricos",
+    "thumbnails": [
+      "https://example.com/images/redragon-kumara.jpg"
+    ],
+    "id": "prod_1781008530404"
+  },
+  {
+    "title": "Mouse Logitech MX Master 3S",
+    "description": "Mouse inalámbrico ergonómico para productividad avanzada.",
+    "code": "LOG-MX3S-004",
+    "price": 119.99,
+    "status": true,
+    "stock": 35,
+    "category": "Periféricos",
+    "thumbnails": [
+      "https://example.com/images/mx-master-3s.jpg"
+    ],
+    "id": "prod_1781008530405"
+  },
+  {
+    "title": "Auriculares Sony WH-1000XM5",
+    "description": "Auriculares inalámbricos con cancelación activa de ruido.",
+    "code": "SONY-WH5-005",
+    "price": 399.99,
+    "status": true,
+    "stock": 20,
+    "category": "Audio",
+    "thumbnails": [
+      "https://example.com/images/sony-wh1000xm5.jpg"
+    ],
+    "id": "prod_1781008530406"
+  },
+  {
+    "title": "Smartphone Samsung Galaxy S25",
+    "description": "Teléfono inteligente con pantalla AMOLED y cámara avanzada.",
+    "code": "SAM-S25-006",
+    "price": 999.99,
+    "status": true,
+    "stock": 50,
+    "category": "Telefonía",
+    "thumbnails": [
+      "https://example.com/images/galaxy-s25.jpg"
+    ],
+    "id": "prod_1781008530407"
+  },
+  {
+    "title": "Tablet Apple iPad Air",
+    "description": "Tablet ligera con chip M2 y pantalla Liquid Retina.",
+    "code": "APL-IPAD-007",
+    "price": 799.99,
+    "status": true,
+    "stock": 18,
+    "category": "Tablets",
+    "thumbnails": [
+      "https://example.com/images/ipad-air.jpg"
+    ],
+    "id": "prod_1781008530408"
+  },
+  {
+    "title": "Disco SSD Samsung 1TB",
+    "description": "Unidad SSD NVMe de alto rendimiento para PC y notebooks.",
+    "code": "SAM-SSD-008",
+    "price": 129.99,
+    "status": true,
+    "stock": 60,
+    "category": "Almacenamiento",
+    "thumbnails": [
+      "https://example.com/images/samsung-ssd-1tb.jpg"
+    ],
+    "id": "prod_1781008530409"
+  },
+  {
+    "title": "Webcam Logitech C920",
+    "description": "Webcam Full HD ideal para videollamadas y streaming.",
+    "code": "LOG-C920-009",
+    "price": 89.99,
+    "status": true,
+    "stock": 45,
+    "category": "Accesorios",
+    "thumbnails": [
+      "https://example.com/images/logitech-c920.jpg"
+    ],
+    "id": "prod_1781008530410"
+  },
+  {
+    "title": "Silla Gamer Cougar Armor One",
+    "description": "Silla ergonómica reclinable para largas sesiones de trabajo o gaming.",
+    "code": "COU-ARM-010",
+    "price": 279.99,
+    "status": true,
+    "stock": 15,
+    "category": "Mobiliario",
+    "thumbnails": [
+      "https://example.com/images/cougar-armor-one.jpg"
+    ],
+    "id": "prod_1781008530411"
+  },
+  {
+    "title": "Impresora HP LaserJet Pro",
+    "description": "Impresora láser monocromática rápida y eficiente para oficina.",
+    "code": "HP-LAS-011",
+    "price": 219.99,
+    "status": true,
+    "stock": 22,
+    "category": "Oficina",
+    "thumbnails": [
+      "https://example.com/images/hp-laserjet-pro.jpg"
+    ],
+    "id": "prod_1781008530412"
+  }
+]

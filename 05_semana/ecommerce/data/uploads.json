@@ -1,0 +1,46 @@
+[
+  {
+    "fieldname": "image",
+    "originalname": "ai_path_root.png",
+    "encoding": "7bit",
+    "mimetype": "image/png",
+    "path": "uploads/ai_path_root.png",
+    "destination": "uploads/",
+    "filename": "ai_path_root.png",
+    "size": 695257,
+    "id": "uploaded_file_1781615576234"
+  },
+  {
+    "fieldname": "image",
+    "originalname": "wallpaper.jpg",
+    "encoding": "7bit",
+    "mimetype": "image/jpeg",
+    "path": "uploads/wallpaper.jpg",
+    "destination": "uploads/",
+    "filename": "wallpaper.jpg",
+    "size": 104190,
+    "id": "uploaded_file_1781615633843"
+  },
+  {
+    "fieldname": "image",
+    "originalname": "wallpaper.jpg",
+    "encoding": "7bit",
+    "mimetype": "image/jpeg",
+    "path": "uploads/wallpaper.jpg",
+    "destination": "uploads/",
+    "filename": "wallpaper.jpg",
+    "size": 104190,
+    "id": "uploaded_file_1781615668134"
+  },
+  {
+    "fieldname": "image",
+    "originalname": "cat_bg_hd.png",
+    "encoding": "7bit",
+    "mimetype": "image/png",
+    "path": "uploads/cat_bg_hd.png",
+    "destination": "uploads/",
+    "filename": "cat_bg_hd.png",
+    "size": 1020009,
+    "id": "uploaded_file_1781616197017"
+  }
+]

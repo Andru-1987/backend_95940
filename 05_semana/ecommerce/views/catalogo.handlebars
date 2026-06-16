@@ -1,0 +1,25 @@
+<h1>Catalogo de Productos</h1>
+
+<div class="products-grid">
+    {{#each products}}
+    <div class="product-item">
+
+        <img
+            src="{{this.thumbnails.[0]}}"
+            alt="{{this.title}}"
+            class="product-image"
+        >
+
+        <h3>{{this.title}}</h3>
+
+        <p class="price">${{this.price}}</p>
+        <p class="description">{{this.description}}</p>
+
+        <div class="product-footer">
+            <span>Stock: {{this.stock}}</span>
+            <span>{{this.category}}</span>
+        </div>
+
+    </div>
+    {{/each}}
+</div>
