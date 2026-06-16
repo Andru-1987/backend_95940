@@ -1,6 +1,67 @@
 #  PROYECTO DE INTEGRACIÓN
 
-A continuación el proyecto completo funcionando con ES6.
+## Desarrollo de E-Commerce con Node.js, Handlebars y Multer
+
+**Objetivo del Proyecto:**
+Desarrollar una aplicación web orientada al comercio electrónico (E-commerce) utilizando Node.js y Express.js. El proyecto evaluará la capacidad del alumno para implementar la modularización mediante ES6 Modules, la renderización de vistas dinámicas con Handlebars, la gestión de rutas y la subida de archivos estáticos utilizando el middleware Multer.
+
+---
+
+### 1. Especificaciones Generales y Configuración
+
+* **Entorno de Desarrollo:** El proyecto debe inicializarse con Node.js utilizando el estándar de módulos de ES6. Para ello, es obligatorio configurar la propiedad `"type": "module"` en el archivo `package.json`.
+* **Dependencias Requeridas:** Deberán instalarse e implementarse los paquetes `express`, `express-handlebars` y `multer`.
+* **Estructura de Directorios:** El proyecto deberá respetar una arquitectura limpia y organizada, separando responsabilidades en carpetas específicas: `src/public` (para CSS y archivos estáticos), `src/routes`, `src/views` (con su subcarpeta `layouts`) y archivos de configuración en la raíz de `src`.
+
+### 2. Configuración del Servidor (`app.js`)
+
+Se requiere configurar un servidor Express que cumpla con las siguientes directivas:
+
+* **Motor de Plantillas:** Configurar `express-handlebars` estableciendo un *layout* principal (`main.handlebars`).
+* **Helper Personalizado:** Desarrollar e inyectar un helper llamado `multiply` que permita multiplicar dos valores (se utilizará para calcular los subtotales en el carrito).
+* **Archivos Estáticos:** Configurar los middlewares necesarios para servir archivos estáticos desde la carpeta `public` y establecer una ruta pública específica `/uploads` para las imágenes cargadas por los usuarios.
+* **Middlewares de Parseo:** Habilitar la lectura de datos provenientes de formularios web y formato JSON (`urlencoded` y `json`).
+* **Redirección Base:** La ruta raíz (`/`) deberá redirigir automáticamente a la ruta `/catalogo`.
+
+### 3. Persistencia de Datos Simulada (`data.json`)
+
+Dado que el proyecto no contará con una base de datos real, se deberá crear un archivo de persistencia en memoria que exporte:
+
+* Un arreglo de objetos `products` pre-poblado con al menos tres productos (conteniendo `id`, `name`, `price` e `image`).
+* Un arreglo vacío `cart` que funcionará como el carrito de compras del usuario. (*optionals*)
+
+### 4. Enrutamiento (Routers Modulares)
+
+El sistema deberá contar con tres enrutadores distintos, implementando `express.Router()`:
+
+**A. Router de Catálogo (`/catalogo`)**
+
+* `GET /`: Renderizará la vista del catálogo, enviando la lista de productos y la cantidad total de artículos actualmente en el carrito (para el indicador de la barra de navegación).
+* `GET /add/:id`: Lógica para agregar un producto al carrito. Si el producto ya existe en el carrito, se debe incrementar su cantidad (`quantity`). Si no existe, se debe agregar con cantidad 1. Redirigirá al catálogo tras la acción.
+
+**B. Router de Carrito (`/carrito`)**
+
+* `GET /`: Renderizará la vista del carrito. Deberá calcular y enviar el monto total de la compra, iterando sobre los productos agregados.
+* `GET /remove/:id`: Eliminará un producto específico del carrito basándose en su ID y redirigirá a la vista del carrito.
+* `GET /clear`: Vaciara completamente el arreglo del carrito y redirigirá a la vista del carrito.
+
+**C. Router de Subida de Archivos (`/subir`)**
+
+* **Configuración de Multer:** Implementar almacenamiento en disco (`diskStorage`) guardando los archivos en `public/uploads`. El nombre del archivo debe ser único (generado mediante *timestamp* y números aleatorios) conservando la extensión original.
+* **Validación:** Implementar un `fileFilter` para admitir estrictamente imágenes (jpeg, jpg, png, gif, webp) y limitar el tamaño del archivo a 5MB.
+* `GET /`: Renderizará la vista con los formularios de subida.
+* `POST /`: Manejará la subida de una imagen simple e informará el éxito de la operación.
+* `POST /add-product`: Manejará la creación de un nuevo producto completo. Deberá recibir el nombre, precio y la imagen a través de un formulario `multipart/form-data`, construir el nuevo objeto producto, agregarlo al arreglo `products` y redirigir al catálogo.
+
+### 5. Desarrollo de Vistas (Handlebars)
+
+Las vistas deben construirse de manera semántica y modular:
+
+* **Layout Principal (`main.handlebars`):** Deberá contener la estructura HTML5 base y una etiqueta `<nav>` que incluya enlaces al catálogo, al carrito (mostrando dinámicamente la cantidad de ítems) y a la sección de subida de imágenes.
+* **Catálogo (`catalog.handlebars`):** Mostrará una grilla iterando sobre los productos disponibles. Cada tarjeta de producto debe exhibir su imagen, nombre, precio y un botón/enlace para agregarlo al carrito.
+* **Carrito (`cart.handlebars`):** Utilizará un condicional para mostrar una tabla con los ítems si el carrito tiene elementos, o un mensaje informando que está vacío. La tabla debe incluir nombre, precio unitario, cantidad, y el subtotal calculado usando el helper `multiply`.
+* **Subida (`upload.handlebars`):** Contendrá dos formularios `enctype="multipart/form-data"`. Uno para la subida simple de imagen y otro más completo para dar de alta un producto nuevo en el sistema.
+
 
 ## Estructura del proyecto
 
