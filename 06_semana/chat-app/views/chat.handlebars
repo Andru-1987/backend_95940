@@ -1,0 +1,51 @@
+<div class="panel">
+    <h2>{{ subTitle }}</h2>
+
+    <input type="text" id="username" placeholder="Tu Nombre de Usuario ...">
+    <div id="chat-box"></div>
+    <p id="typing-indicator"></p>
+
+    <input type="text" id="message" placeholder="Escribe un mensaje...">
+    <button id="send-btn">Enviar Mensaje</button>
+</div>
+<script>
+    const socket = io();
+
+    const chatBox = document.getElementById('chat-box');
+    const sendBtn = document.getElementById('send-btn');
+    const messageInput = document.getElementById('message');
+    const usernameInput = document.getElementById('username');
+
+    const addMessage = (msg) => {
+        chatBox.innerHTML += `<div class="msg"><strong>[${msg.fecha}] ${msg.usuario}:</strong> ${msg.texto}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+    socket.on("historial_chat", (chatHistory) => {
+        console.log(chatHistory);
+
+        chatHistory.forEach((message) => {
+            addMessage(message);
+        });
+    });
+
+
+    socket.on("mensaje_server", (message) => {
+        addMessage(message);
+    });
+
+    sendBtn.addEventListener('keypress', (e) => {
+        if (e.key == 'Enter'){
+            sendBtn.click();
+        }
+
+        const msg = messageInput.value.trim();
+        const fecha = new Date().toLocaleTimeString();
+        const usuario = usernameInput.value.trim();
+
+        if (msg && usuario) {
+            socket.emit("mensaje", { texto: msg, fecha, usuario });
+            messageInput.value = '';
+        }
+    });
+</script>

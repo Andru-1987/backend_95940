@@ -42,5 +42,16 @@
     "filename": "cat_bg_hd.png",
     "size": 1020009,
     "id": "uploaded_file_1781616197017"
+  },
+  {
+    "fieldname": "image",
+    "originalname": "monitor.jpg",
+    "encoding": "7bit",
+    "mimetype": "image/jpeg",
+    "path": "uploads/monitor.jpg",
+    "destination": "uploads/",
+    "filename": "monitor.jpg",
+    "size": 10789,
+    "id": "uploaded_file_1781779628958"
   }
 ]
