@@ -1,0 +1,22 @@
+[
+  {
+    "id": "prod_1718700000001",
+    "nombre": "Monitor Gamer Curvo 144Hz",
+    "precio": 260
+  },
+  {
+    "id": "prod_1718700000002",
+    "nombre": "Teclado Mecánico RGB Switch Red",
+    "precio": 85
+  },
+  {
+    "id": "prod_1718700000004",
+    "nombre": "Silla Ergonómica de Oficina",
+    "precio": 180
+  },
+  {
+    "nombre": "Monitor Curvo",
+    "precio": "210",
+    "id": "prod_1781771236342"
+  }
+]

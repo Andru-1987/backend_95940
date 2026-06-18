@@ -1,0 +1,71 @@
+<div class="panel">
+    <h2>{{title}}</h2>
+
+    <input type="text" id="username" placeholder="Tu Nombre de Usuario">
+    <div id="chat-box"></div>
+
+    <p id="typing-indicator"></p>
+
+    <input type="text" id="message" placeholder="Escribe un mensaje...">
+    <button id="send-btn">Enviar Mensaje</button>
+</div>
+
+<script>
+    const socket = io();
+    const chatBox = document.getElementById('chat-box');
+    const usernameInput = document.getElementById('username');
+    const messageInput = document.getElementById('message');
+    const sendBtn = document.getElementById('send-btn');
+    const typingIndicator = document.getElementById('typing-indicator');
+    let typingTimeout;
+
+    socket.on('historial_chat', (historial) => {
+        chatBox.innerHTML += `<p class="notif">--- Cargando historial de mensajes ---</p>`;
+        historial.forEach(msg => agregarMensajePantalla(msg));
+    });
+
+    socket.on('notificacion', (data) => {
+        chatBox.innerHTML += `<p class="notif">${data}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+
+    socket.on('mensaje_servidor', (msg) => {
+        agregarMensajePantalla(msg);
+    });
+
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key == 'Enter'){
+            sendBtn.click()
+        }
+        const usuario = usernameInput.value.trim() || 'Anónimo';
+        socket.emit('typing', usuario);
+        clearTimeout(typingTimeout);
+        typingTimeout = setTimeout(() => {
+            socket.emit('stop_typing');
+        }, 1500);
+    });
+
+    socket.on('usuario_escribiendo', (usuario) => {
+        typingIndicator.innerText = `${usuario} está escribiendo...`;
+    });
+
+    socket.on('usuario_dejo_de_escribir', () => {
+        typingIndicator.innerText = '';
+    });
+
+    sendBtn.addEventListener('click', () => {
+        const usuario = usernameInput.value.trim() || 'Anónimo';
+        const texto = messageInput.value.trim();
+        
+        if(texto !== "") {
+            socket.emit('mensaje_cliente', { usuario, texto });
+            messageInput.value = "";
+            socket.emit('stop_typing');
+        }
+    });
+
+    function agregarMensajePantalla(msg) {
+        chatBox.innerHTML += `<div class="msg"><strong>[${msg.fecha}] ${msg.usuario}:</strong> ${msg.texto}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+</script>

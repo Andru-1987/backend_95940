@@ -1,0 +1,110 @@
+<div class="panel">
+    <h3 id="form-title">Agregar Producto (Admin)</h3>
+    <input type="text" id="prod-name" placeholder="Nombre del producto">
+    <input type="number" id="prod-price" placeholder="Precio ($)">
+    <button id="add-btn">Agregar Producto</button>
+    <button id="cancel-btn" style="display: none;">Cancelar Edición</button>
+</div>
+
+<div class="panel">
+    <h3>Catálogo Actual</h3>
+    <ul id="lista-productos">
+        {{#each productos}}
+            <li>
+                <div class="product-info">
+                    <strong>{{this.nombre}}</strong> - ${{this.precio}} <br>
+                    <small style="color: #666;">(ID: {{this.id}})</small>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-edit" data-id="{{this.id}}" data-nombre="{{this.nombre}}" data-precio="{{this.precio}}">✏️ Editar</button>
+                    <button class="btn-delete" data-id="{{this.id}}">🗑️ Borrar</button>
+                </div>
+            </li>
+        {{else}}
+            <li id="no-products">No hay productos en stock.</li>
+        {{/each}}
+    </ul>
+</div>
+
+<script>
+    const socket = io();
+    
+    const btn = document.getElementById('add-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const nameInput = document.getElementById('prod-name');
+    const priceInput = document.getElementById('prod-price');
+    const lista = document.getElementById('lista-productos');
+    const formTitle = document.getElementById('form-title');
+
+    let editandoId = null;
+
+    btn.addEventListener('click', () => {
+        const nombre = nameInput.value.trim();
+        const precio = Number(priceInput.value.trim());
+
+        if (!nombre || !precio) return alert("Completa todos los campos");
+
+        if (editandoId) {
+            socket.emit('actualizar_producto', { id: editandoId, nombre, precio });
+            resetearFormulario();
+        } else {
+            socket.emit('nuevo_producto', { nombre, precio });
+            nameInput.value = '';
+            priceInput.value = '';
+        }
+    });
+
+    cancelBtn.addEventListener('click', resetearFormulario);
+
+    function resetearFormulario() {
+        editandoId = null;
+        nameInput.value = '';
+        priceInput.value = '';
+        btn.innerText = 'Agregar Producto';
+        formTitle.innerText = 'Agregar Producto (Admin)';
+        cancelBtn.style.display = 'none';
+    }
+
+    lista.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-delete')) {
+            const id = e.target.getAttribute('data-id');
+            if(confirm('¿Seguro que quieres borrar este producto?')) {
+                socket.emit('eliminar_producto', id);
+            }
+        }
+
+        if (e.target.classList.contains('btn-edit')) {
+            editandoId = e.target.getAttribute('data-id');
+            nameInput.value = e.target.getAttribute('data-nombre');
+            priceInput.value = e.target.getAttribute('data-precio');
+            
+            btn.innerText = 'Actualizar Producto';
+            formTitle.innerText = `Editando ID: ${editandoId}`;
+            cancelBtn.style.display = 'inline-block';
+        }
+    });
+
+    socket.on('productos_actualizados', (productosCargados) => {
+        lista.innerHTML = '';
+        
+        if (productosCargados.length === 0) {
+            lista.innerHTML = '<li id="no-products">No hay productos en stock.</li>';
+            return;
+        }
+
+        productosCargados.forEach(prod => {
+            lista.innerHTML += `
+                <li>
+                    <div class="product-info">
+                        <strong>${prod.nombre}</strong> - $${prod.precio} <br>
+                        <small style="color: #666;">(ID: ${prod.id})</small>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-edit" data-id="${prod.id}" data-nombre="${prod.nombre}" data-precio="${prod.precio}">✏️ Editar</button>
+                        <button class="btn-delete" data-id="${prod.id}">🗑️ Borrar</button>
+                    </div>
+                </li>
+            `;
+        });
+    });
+</script>
