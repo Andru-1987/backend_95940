@@ -1,0 +1,31 @@
+<div class="panel">
+    <h3 id="form-title">Agregar Producto (Admin)</h3>
+    <input type="text" id="prod-name" placeholder="Nombre del producto">
+    <input type="number" id="prod-price" placeholder="Precio ($)">
+    <button id="add-btn">Agregar Producto</button>
+    <button id="cancel-btn" style="display: none;">Cancelar Edición</button>
+</div>
+
+<div class="panel">
+    <h3>Catálogo Actual</h3>
+    <ul id="lista-productos">
+        {{#if error}}
+            <li>{{error}}</li>
+        {{/if}}
+
+        {{#each productos}}
+            <li>
+                <div class="product-info">
+                    <strong>{{this.title}}</strong> - ${{this.price}} <br>
+                    <small style="color: #666;">(ID: {{this.id}})</small>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-edit" data-id="{{this.id}}" data-title="{{this.title}}" data-price="{{this.price}}">✏️ Editar</button>
+                    <button class="btn-delete" data-id="{{this.id}}">🗑️ Borrar</button>
+                </div>
+            </li>
+        {{else}}
+            <li id="no-products">No hay productos en stock.</li>
+        {{/each}}
+    </ul>
+</div>
