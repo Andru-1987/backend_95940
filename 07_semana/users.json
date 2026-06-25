@@ -1,0 +1,72 @@
+[
+  {
+    "nombre": "Carlos",
+    "edad": 28,
+    "email": "carlos@email.com",
+    "activo": true,
+    "hobbies": ["Lectura", "Investigación"]
+  },
+  {
+    "nombre": "Ana",
+    "edad": 19,
+    "email": "ana@email.com",
+    "activo": true,
+    "hobbies": ["Música", "Viajes"]
+  },
+  {
+    "nombre": "Pedro",
+    "edad": 35,
+    "email": "pedro@email.com",
+    "activo": false,
+    "hobbies": ["Deportes", "Programación"]
+  },
+  {
+    "nombre": "Lucía",
+    "edad": 17,
+    "email": "lucia@email.com",
+    "activo": true,
+    "hobbies": ["Videojuegos", "Arte"]
+  },
+  {
+    "nombre": "María",
+    "edad": 42,
+    "email": "maria@email.com",
+    "activo": false,
+    "hobbies": ["Cocina", "Lectura"]
+  },
+  {
+    "nombre": "Juan",
+    "edad": 24,
+    "email": "juan@email.com",
+    "activo": true,
+    "hobbies": ["Fútbol", "Series"]
+  },
+  {
+    "nombre": "Sofía",
+    "edad": 31,
+    "email": "sofia@email.com",
+    "activo": true,
+    "hobbies": ["Fotografía", "Viajes"]
+  },
+  {
+    "nombre": "Miguel",
+    "edad": 15,
+    "email": "miguel@email.com",
+    "activo": false,
+    "hobbies": ["Gaming", "Música"]
+  },
+  {
+    "nombre": "Valentina",
+    "edad": 27,
+    "email": "valentina@email.com",
+    "activo": true,
+    "hobbies": ["Yoga", "Lectura"]
+  },
+  {
+    "nombre": "Andrés",
+    "edad": 50,
+    "email": "andres@email.com",
+    "activo": true,
+    "hobbies": ["Pesca", "Senderismo"]
+  }
+]
