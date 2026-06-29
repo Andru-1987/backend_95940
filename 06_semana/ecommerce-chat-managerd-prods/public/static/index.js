@@ -11,7 +11,7 @@ socket.on("chatHistory", (data) => {
         chatHistory.appendChild(messageElement);
     });
 
-    chatHistory.scrollTop = chatHistory.scrollHeight;
+    // chatHistory.scrollTop = chatHistory.scrollHeight;
 });
 
 socket.on("userJoined", (data) => {
@@ -44,3 +44,63 @@ socket.on("message_server", (data) => {
 });
 
 // falta agregar productos!
+const addProductListener = document.getElementById("add-btn");
+
+const clearForm = () => {
+    document.getElementById("prod-title").value = "";
+    document.getElementById("prod-description").value = "";
+    document.getElementById("prod-code").value = "";
+    document.getElementById("prod-price").value = "";
+    document.getElementById("prod-status").checked = false;
+    document.getElementById("prod-stock").value = "";
+    document.getElementById("prod-category").value = "";
+};
+
+if (addProductListener) {
+    addProductListener.addEventListener("click", () => {
+        title = document.getElementById("prod-title").value.trim();
+        description = document.getElementById("prod-description").value.trim();
+        code = document.getElementById("prod-code").value.trim();
+        price = document.getElementById("prod-price").value.trim();
+        status = document.getElementById("prod-status").checked;
+        stock = Number(document.getElementById("prod-stock").value.trim());
+        category = document.getElementById("prod-category").value.trim();
+
+        if (title && description && code && price && stock && category) {
+            const product = {
+                title,
+                description,
+                code,
+                price,
+                status,
+                stock,
+                category,
+            };
+            console.log(product);
+            socket.emit("add_product", product);
+        }
+        clearForm();
+    });
+}
+
+socket.on("products_updated", (products) => {
+    const productList = document.getElementById("lista-productos");
+    productList.innerHTML = "";
+
+    products.forEach((product) => {
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+            <div class="product-info">
+                <strong>${product.title}</strong> - $${product.price} <br>
+                <small style="color: #666;">(ID: ${product.id})</small>
+            </div>
+            <div class="product-actions">
+                <button class="btn-edit" data-id="${product.id}" data-title="${product.title}" data-price="${product.price}">✏️ Editar</button>
+                <button class="btn-delete" data-id="${product.id}">🗑️ Borrar</button>
+            </div>
+        </li>
+        `;
+        productList.appendChild(li);
+    });
+});

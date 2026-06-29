@@ -1,7 +1,14 @@
 <div class="panel">
     <h3 id="form-title">Agregar Producto (Admin)</h3>
-    <input type="text" id="prod-name" placeholder="Nombre del producto">
+    <input type="text" id="prod-title" placeholder="Nombre del producto">
+    <input type="text" id="prod-description" placeholder="Agrege informacion del producto">
+    <input type="text" id="prod-code" placeholder="Codigo del producto">
     <input type="number" id="prod-price" placeholder="Precio ($)">
+    <label for="prod-status">Status</label>
+    <input  type="checkbox" checked="checked" id="prod-status">
+
+    <input type="number" min="0" oninput="if(value<0) value=0" id="prod-stock" placeholder="Stock">
+    <input type="text" id="prod-category" placeholder="Categoria">
     <button id="add-btn">Agregar Producto</button>
     <button id="cancel-btn" style="display: none;">Cancelar Edición</button>
 </div>

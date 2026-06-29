@@ -10,6 +10,7 @@ import { engine } from "express-handlebars";
 // modulos custom de la app
 import renderingRouter from "./routes/rendering.route.js";
 import chatHandler from "./sockets/chatHandler.js";
+import registerProductHandler from "./sockets/productsHandler.js";
 
 const app = express();
 
@@ -31,6 +32,7 @@ io.on("connection", (socket) => {
     console.log("cliente conectado", socket.id);
 
     chatHandler(io, socket);
+    registerProductHandler(io, socket);
 
     socket.on("disconnect", () => {
         console.log("cliente desconectado", socket.id);
