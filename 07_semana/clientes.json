@@ -1,0 +1,42 @@
+[
+    {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "edad": 22,
+        "email": "juan@gmail.com",
+        "ciudad": "Buenos Aires",
+        "activo": true
+    },
+    {
+        "nombre": "Lucía",
+        "apellido": "Martinez",
+        "edad": 25,
+        "email": "lucia@gmail.com",
+        "ciudad": "Rosario",
+        "activo": true
+    },
+    {
+        "nombre": "Pedro",
+        "apellido": "Lopez",
+        "edad": 35,
+        "email": "pedro@gmail.com",
+        "ciudad": "Córdoba",
+        "activo": false
+    },
+    {
+        "nombre": "María",
+        "apellido": "Fernandez",
+        "edad": 29,
+        "email": "maria@gmail.com",
+        "ciudad": "Mendoza",
+        "activo": true
+    },
+    {
+        "nombre": "Sofía",
+        "apellido": "Gomez",
+        "edad": 19,
+        "email": "sofia@gmail.com",
+        "ciudad": "La Plata",
+        "activo": false
+    }
+]

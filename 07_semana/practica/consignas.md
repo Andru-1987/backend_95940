@@ -74,7 +74,12 @@ Antes de trabajar con MongoDB, necesitamos preparar la información inicial que 
 ## Parte 2: Crear la Base de Datos
 
 1. Abre **MongoDB Compass**.
-2. Conéctate a tu servidor local utilizando la URI: `mongodb://localhost:27017`
+2. Conéctate a tu servidor en la nube: [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) utilizando la URI:
+```bash
+    # MongoDB Compass
+    mongodb+srv://<username>:<db_password>@<cluster_name>.mongodb.net/
+```
+
 3. Crea una nueva base de datos llamada **`backend`**.
 4. Dentro de esa base de datos, crea una colección llamada **`clientes`**.
 
