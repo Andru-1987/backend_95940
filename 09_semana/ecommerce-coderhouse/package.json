@@ -1,5 +1,5 @@
 {
-    "name": "ecommerce-mongo",
+    "name": "ecommerce-coderhouse",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -24,12 +24,12 @@
     },
     "contributors": [],
     "scripts": {
-        "dev": "node  --watch --env-file=.env server.js",
+        "dev": "node --watch --env-file .env server.js ",
         "test": ""
     },
     "dependencies": {
         "express": "^5.2.1",
-        "mongodb": "^7.4.0",
-        "mongoose": "^9.7.3"
+        "mongoose": "^9.7.4",
+        "mongoose-paginate-v2": "^1.9.5"
     }
 }

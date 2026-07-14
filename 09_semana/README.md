@@ -1,18 +1,4 @@
-## 1. Resumen de la Clase: Optimizando MongoDB
-
-En esta unidad abordamos cómo escalar y optimizar nuestras bases de datos para manejar entornos de producción reales:
-
-* **Indexación:** La herramienta fundamental para evitar que MongoDB haga un escaneo completo de la colección (Collection Scan). Al aplicar índices a campos específicos, creamos estructuras B-tree que reducen los tiempos de búsqueda de milisegundos a prácticamente cero. Aprendimos sobre índices simples, compuestos, de texto y geoespaciales.
-* **Populations:** El equivalente a los "Joins" relacionales, pero adaptado a la filosofía NoSQL. Consiste en guardar la referencia (el `_id`) de un documento en otro y usar el método `.populate()` de Mongoose para "hidratar" o traer la información completa del documento referenciado al momento de la consulta.
-* **Aggregations:** El motor de procesamiento de datos de MongoDB. Funciona mediante *pipelines* (tuberías) donde los datos pasan por múltiples etapas (`$match`, `$group`, `$sort`) para ser transformados, filtrados o resumidos, ideal para reportes y analítica.
-* **Paginación:** La técnica obligatoria para enviar datos al cliente en fragmentos manejables. Utilizando `mongoose-paginate-v2`, evitamos colapsar la red y la memoria del servidor enviando miles de documentos de golpe.
-
----
-¡Hola a todos! Como continuación de nuestra última sesión, he preparado este material complementario. Aquí encontraremos un resumen de los conceptos teóricos clave y un anexo práctico con código real en Express y Mongoose para que puedan aplicar lo aprendido directamente en sus proyectos.
-
----
-
-## 1. Resumen de la Clase: Optimizando MongoDB
+## 1. Optimizando MongoDB
 
 En esta unidad abordamos cómo escalar y optimizar nuestras bases de datos para manejar entornos de producción reales:
 
