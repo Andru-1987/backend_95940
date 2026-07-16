@@ -6,7 +6,9 @@
 * **Estructura**: Mantener la lógica de negocio existente, adaptando únicamente la capa de persistencia.
 * **Endpoints**: Completar y asegurar el funcionamiento de todos los endpoints correspondientes a productos y carritos.
 
----
+**Nota**: La entrega final se debe incluir los puntos de los entregables anteriores.
+
+> Realtime products
 
 ## Parte 1: API de Productos (Profesionalizada)
 
@@ -157,7 +159,7 @@ Se deben implementar los siguientes endpoints para la gestión avanzada de carri
 
 ```bash
 ├── src/
-│    app.js
+│   │ app.js
 │   ├── models/
 │   │   ├── product.model.js
 │   │   └── cart.model.js
