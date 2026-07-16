@@ -75,6 +75,7 @@ productsRouter.get("/", async (req, res) => {
 
         const result = await Product.paginate({}, options);
 
+        // TODO -> paginado con link a las siguientes paginas de los productos y su renderizado
         res.status(200).json({
             status: "success",
             data: result.docs,

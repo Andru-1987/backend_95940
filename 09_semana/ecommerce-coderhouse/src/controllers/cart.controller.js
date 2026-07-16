@@ -9,14 +9,18 @@ class CartController {
         this.productModel = Product;
     }
 
-    async cartCreateController(req, res) {
+    cartCreateController = async (req, res) => {
         try {
             const { user } = req.body;
+
             const existUser = await this.userModel.findById(user);
+
+            console.log("existUser", existUser)
 
             if (!existUser) {
                 return res.status(404).json({ error: "User not found" });
             }
+
 
             const cart = await this.cartModel.create({ user, products: [] });
             res.status(201).json({ status: "success", data: cart });
@@ -26,12 +30,16 @@ class CartController {
     }
 
     //listar los productos de un carrito
-    async cartGetController(req, res) {
+    cartGetController = async (req, res) => {
         try {
+            // TODO -> llenar el carrito con la informacion de los productos
             const cart = await this.cartModel
-                .findById(req.params.id)
-                .populate("products.product")
-                .populate("user", "firstName email");
+                .findById(req.params.cid)
+                .populate("products.product", "title price -_id")
+                .populate("user", "firstName email -_id")
+                .lean();
+
+
             if (!cart) {
                 return res
                     .status(404)
@@ -44,7 +52,7 @@ class CartController {
         }
     }
     // listar los carritos que tiene un usuario
-    async cartGetByUserController(req, res) {
+    cartGetByUserController = async (req, res) => {
         try {
             const carts = await this.cartModel
                 .find({ user: req.params.user })
@@ -63,7 +71,7 @@ class CartController {
         }
     }
     //actualizar un carrito donde ya existe el carrito
-    async cartUpdateProductController(req, res) {
+    cartUpdateProductController = async (req, res) => {
         try {
             const { cid, pid } = req.params;
             const { quantity } = req.body;
@@ -86,20 +94,20 @@ class CartController {
             );
 
             if (existItem) {
-                existItem.quantity = quantity ?? existItem.quantity;
+                existItem.quantity += quantity ?? existItem.quantity;
             } else {
                 cart.products.push({ product: pid, quantity: quantity ?? 1 });
             }
 
             await cart.save();
-            res.status(400).json({ status: "success", cart });
+            res.status(200).json({ status: "success", cart });
         } catch (error) {
             res.status(500).json({ status: "error", error: error.message });
         }
     }
 
     //actualizar la cantidad de un producto en un carrito
-    async cartUpdateProductQuantityController(req, res) {
+    cartUpdateProductQuantityController = async (req, res) => {
         try {
             const { cid, pid } = req.params;
             const { quantity } = req.body;
@@ -127,7 +135,7 @@ class CartController {
     }
 
     //eliminar un producto de un carrito
-    async cartDeleteProductController(req, res) {
+    cartDeleteProductController = async (req, res) => {
         try {
             const { cid, pid } = req.params;
 
@@ -150,7 +158,7 @@ class CartController {
     }
 
     //limpiar un carrito
-    async cartDeleteController(req, res) {
+    cartDeleteController = async (req, res) => {
         try {
             const { cid } = req.params;
 
@@ -175,7 +183,6 @@ class CartController {
             res.status(500).json({ status: "error", error: error.message });
         }
     }
-
 }
 
 const cartController = new CartController();

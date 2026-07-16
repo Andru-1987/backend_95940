@@ -20,8 +20,9 @@ const cartSchema = new mongoose.Schema({
                 min: [1, "Quantity must be at least 1"],
             },
         },
-    ],
-    default: [],
+    ]
+    // ??? que hace este campo vacio
+    // ?
 });
 
 
